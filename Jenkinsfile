@@ -15,9 +15,10 @@ node {
 
     stage('Test image') {
         
-        app.inside {
-            echo "Tests passed"
-        }
+       script {
+                    docker.image("abhijithkora2005/nodeapp").inside("/c/ProgramData/Jenkins/.jenkins/workspace/Docker-Pipeline/") {
+                        sh 'npm test'  // Replace with your test command
+                    }
     }
 
     stage('Push image') {
