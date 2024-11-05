@@ -1,6 +1,9 @@
 node {
     def app
 
+    environment {
+        DockerHub_Credentials = credentials('new-credentials')
+    }
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
 
@@ -9,9 +12,7 @@ node {
 
     stage('Build image') {
         /* This builds the actual image */
-     environment {
-                  HOME="."
-                }
+    
         app = docker.build("abhijithkora2005/nodeapp")
     }
 
