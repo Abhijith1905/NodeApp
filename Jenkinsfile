@@ -9,7 +9,9 @@ node {
 
     stage('Build image') {
         /* This builds the actual image */
-
+     environment {
+                  HOME="."
+                }
         app = docker.build("abhijithkora2005/nodeapp")
     }
 
