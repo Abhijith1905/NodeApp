@@ -13,11 +13,11 @@ node {
 
     stage('Test image') {
         script {
-            docker.image("abhijithkora2005/nodeapp").inside("/c/ProgramData/Jenkins/.jenkins/workspace/Docker-Pipeline/") {
+            docker.image("abhijithkora2005/nodeapp").inside {
                 sh 'npm test'  // Replace with your test command
             }
-        } // Closing script block
-    } // Closing Test image stage
+        }
+    }
 
     stage('Push image') {
         // You need to register with DockerHub before you can push images to your account
@@ -27,4 +27,4 @@ node {
         }
         echo "Trying to Push Docker Build to DockerHub"
     }
-} // Closing node block
+}
