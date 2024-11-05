@@ -1,9 +1,9 @@
 node {
     def app
 
-    environment {
-        DockerHub_Credentials = credentials('new-credentials')
-    }
+    // environment {
+    //     DockerHub_Credentials = credentials('new-credentials')
+    // }
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
 
